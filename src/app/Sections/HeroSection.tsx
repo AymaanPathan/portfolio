@@ -22,14 +22,31 @@ export default function HeroSection() {
         }}
       >
         <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-          <span style={{ color: "var(--accent-gold)", flexShrink: 0 }}>→</span>
+          <span
+            style={{
+              width: "5px",
+              height: "5px",
+              borderRadius: "50%",
+              flexShrink: 0,
+              marginTop: "9px",
+            }}
+          />
           <span>
-            Hackathon winner — <strong>₹1.34L prize</strong>, Top 10 finishes
-            across national &amp; international competitions
+            Hackathon winner — <strong>₹1.34L prize Solo</strong>, Top 10
+            finishes across national &amp; international competitions
           </span>
         </li>
         <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-          <span style={{ color: "var(--accent-gold)", flexShrink: 0 }}>→</span>
+          <span
+            style={{
+              width: "5px",
+              height: "5px",
+              borderRadius: "50%",
+              background: "var(--text-white)",
+              flexShrink: 0,
+              marginTop: "9px",
+            }}
+          />
           <span>
             Building and shipping SaaS products — from idea to production
           </span>

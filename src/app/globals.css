@@ -3,7 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
-
 :root {
   /* Backgrounds */
   --bg: #050505;
@@ -592,4 +591,171 @@ body::before {
   width: 100%;
   margin: 0 auto;
   padding: 0 28px 120px;
+}
+
+/* ── EXPERIENCE ──────────────────────────────── */
+.exp-section {
+  padding-bottom: 16px;
+}
+
+.exp-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-medium);
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.exp-heading {
+  font-family: var(--font-body);
+  font-size: 28px;
+  font-weight: var(--fw-extrabold);
+  color: var(--text-white);
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+}
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border-1);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.exp-card {
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--border-1);
+  padding: 20px;
+}
+.exp-card:last-child {
+  border-bottom: none;
+}
+
+.exp-header {
+  display: flex;
+  align-items: center; /* 👈 confirm this is there */
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.exp-logo {
+  width: 44px;
+  height: 44px;
+  min-width: 44px; /* 👈 add this */
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-bold);
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+.exp-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.exp-company-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.exp-company {
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  font-weight: var(--fw-bold);
+  color: var(--text-white);
+  letter-spacing: -0.01em;
+}
+
+.exp-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  background: var(--accent-green-bg);
+  border: 1px solid var(--accent-green-border);
+  font-family: var(--font-body);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-semibold);
+  color: var(--accent-green);
+  letter-spacing: 0.01em;
+}
+
+.exp-role {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-regular);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.exp-period-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.exp-period {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-medium);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.exp-location {
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 58px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-regular);
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+.exp-bullet-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-white);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+@media (max-width: 540px) {
+  .exp-bullets {
+    padding-left: 0;
+  }
+  .exp-period-col {
+    display: none;
+  }
 }
