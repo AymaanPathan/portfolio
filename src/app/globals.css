@@ -1,1 +1,595 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
+
+
+:root {
+  /* Backgrounds */
+  --bg: #050505;
+  --bg-1: #080808;
+  --bg-2: #0a0a0a;
+  --bg-3: #0c0c0c;
+  --bg-4: #0e0e0e;
+
+  /* Borders */
+  --border: #111111;
+  --border-1: #161616;
+  --border-2: #1e1e1e;
+  --border-3: #222222;
+  --border-4: #2a2a2a;
+
+  /* Text */
+  --text-white: #ffffff;
+  --text-bright: #f0f0f0;
+  --text-base: #c8c8c8;
+  --text-muted: #888888;
+  --text-dim: #666666;
+  --text-dark: #444444;
+  --text-darker: #333333;
+  --text-faint: #2e2e2e;
+
+  /* Accents */
+  --accent-green: #4ade80;
+  --accent-green-bg: rgba(74, 222, 128, 0.07);
+  --accent-green-border: rgba(74, 222, 128, 0.18);
+  --accent-green-pulse: rgba(34, 197, 94, 0.3);
+  --accent-green-solid: #22c55e;
+  --accent-gold: #fbbf24;
+  --accent-gold-bg: rgba(251, 191, 36, 0.07);
+  --accent-gold-border: rgba(251, 191, 36, 0.18);
+
+  /* Fonts */
+  --font-display: "Syne", sans-serif;
+  --font-body: "HK Grotesk", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Sizes */
+  --fs-10: 10px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-section: 36px;
+  --fs-contact-h: clamp(40px, 6vw, 68px);
+
+  /* Spacing */
+  --gap-xs: 6px;
+  --gap-sm: 10px;
+  --gap-md: 14px;
+  --gap-lg: 18px;
+
+  /* Radius */
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 10px;
+  --r-xl: 14px;
+  --r-2xl: 16px;
+  --r-pill: 100px;
+
+  /* Shadows */
+  --shadow-nav:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 40px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease;
+  --transition-base: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-reveal:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --page-max-width: 780px;
+  --page-padding: 0 28px 120px;
+}
+
+/* ── RESET ───────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-base);
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ── GRAIN OVERLAY ───────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.18;
+}
+
+/* ── REVEAL ──────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: var(--transition-reveal);
+}
+[data-reveal].in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── ANIMATIONS ──────────────────────────────── */
+@keyframes livepulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 var(--accent-green-pulse);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0);
+  }
+}
+
+@keyframes mq {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── SCROLLBAR ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-4);
+}
+
+/* ── NAV BLUR MASK ───────────────────────────── */
+.nav-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  height: 110px;
+  pointer-events: none;
+}
+.nav-mask::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    rgba(5, 5, 5, 0.95) 20%,
+    rgba(5, 5, 5, 0.7) 50%,
+    rgba(5, 5, 5, 0.2) 75%,
+    transparent 100%
+  );
+}
+.nav-mask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 30%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, black 0%, black 30%, transparent 100%);
+}
+
+/* ── NAV ─────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 14px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0 16px;
+}
+
+.nav-pill {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  background: rgba(14, 14, 14, 0.92);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-xl);
+  padding: 5px 8px 5px 12px;
+  box-shadow: var(--shadow-nav);
+  max-width: 660px;
+  width: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  margin-right: 4px;
+}
+
+.nav-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: #1a1a1a;
+  border: 1px solid var(--border-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.nav-name {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-bold);
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.nav-div {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 var(--gap-sm);
+  flex-shrink: 0;
+}
+
+.nav-links {
+  flex: 1; /* takes all remaining space */
+}
+
+.nav-a {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-medium);
+  color: var(--text-dark);
+  padding: 5px 12px;
+  border-radius: 9px;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-semibold);
+  background: var(--text-white);
+  color: #000;
+  padding: 7px 15px;
+  border-radius: var(--r-lg);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+.nav-cta:hover {
+  background: #e8e8e8;
+  transform: translateY(-1px);
+}
+
+/* ── LIVE DOT ────────────────────────────────── */
+.ldot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green-solid);
+  animation: livepulse 2s ease infinite;
+  flex-shrink: 0;
+}
+
+.page > * {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────
+   HERO SECTION
+   Font: HK Grotesk (body font) — NOT display
+   Size: clamp(28px, 4vw, 38px) — compact like ref
+   ───────────────────────────────────────────── */
+.hero {
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.hero-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* HK Grotesk bold — matches reference exactly */
+.hero-h1 {
+  font-family: var(--font-body);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: var(--fw-extrabold);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+  margin-bottom: 20px;
+}
+
+/* Medium gray descriptor — same as reference */
+.hero-h1-muted {
+  color: #555555;
+}
+
+.hero-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-regular);
+  line-height: 1.85;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+.hero-desc strong {
+  color: #e0e0e0;
+  font-weight: var(--fw-bold);
+}
+
+/* Inline tech badge — dark chip with icon */
+.inline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 10px 2px 7px;
+  border-radius: var(--r-md);
+  background: #1c1c1c;
+  border: 1px solid #2e2e2e;
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-medium);
+  color: #d8d8d8;
+  vertical-align: middle;
+  margin: 0 1px;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+.inline-badge-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+/* ── BUTTONS ─────────────────────────────────── */
+
+/* Dark filled — Resume/CV */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: var(--r-lg);
+  background: #1c1c1c;
+  border: 1px solid #2e2e2e;
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+.btn-dark:hover {
+  background: #242424;
+  border-color: #3a3a3a;
+  transform: translateY(-1px);
+}
+
+/* Ghost outline — Get in touch */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: var(--r-lg);
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: var(--text-bright);
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+.btn-ghost:hover {
+  border-color: #444;
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Social icon links */
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-social {
+  color: #333333;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+.hero-social:hover {
+  color: #aaaaaa;
+}
+
+/* ── DIVIDER ─────────────────────────────────── */
+.div {
+  height: 1px;
+  background: var(--border);
+  margin: 72px 0;
+}
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Match page max-width so it aligns with content */
+  max-width: var(--page-max-width);
+  width: 100%;
+  margin: 0 auto;
+  /* Slight background blur so content scrolls under it */
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-1);
+}
+
+/* Inner row — avatar | links | moon */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0; /* no horizontal padding — flush with page */
+}
+
+/* Avatar */
+.nav-avatar-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #1a1a1a;
+  border: 1px solid var(--border-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+.nav-avatar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Links row — takes remaining space */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+/* Individual link */
+.nav-a {
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-medium);
+  color: var(--text-muted);
+  padding: 5px 12px;
+  border-radius: var(--r-md);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+.nav-a:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Moon / sun icon button — far right */
+.nav-theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-md);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: var(--transition-fast);
+}
+.nav-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-white);
+}
+
+/* ── PAGE WRAP — centered column ─────────────── */
+/* This is what centers everything including the navbar */
+.page {
+  max-width: var(--page-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 28px 120px;
+}
