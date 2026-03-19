@@ -6,28 +6,35 @@ export default function HeroSection() {
       {/* H1 — first reveal, no delay */}
       <h1 className="hero-h1" data-reveal>
         Hi, I&apos;m Aymaan —{" "}
-        <span className="hero-h1-muted">Full Stack Developer.</span>
+        <span className="hero-h1-muted">I build things.</span>
       </h1>
-
-      {/* Description */}
-      <p className="hero-desc" data-reveal data-reveal-delay="80">
-        I work at a non-IT company but my entire role is building{" "}
-        <strong>production systems from scratch</strong> — no assigned tickets,
-        no hand-holding. I build with{" "}
-        <span className="inline-badge">
-          <span className="inline-badge-icon">⚡</span>Next.js
-        </span>
-        ,{" "}
-        <span className="inline-badge">
-          <span className="inline-badge-icon">🟢</span>Node.js
-        </span>{" "}
-        and{" "}
-        <span className="inline-badge">
-          <span className="inline-badge-icon">🔴</span>Redis
-        </span>{" "}
-        and ship things that actually work in production.
-      </p>
-
+      <ul
+        className="hero-desc"
+        data-reveal
+        data-reveal-delay="120"
+        style={{
+          paddingLeft: 0,
+          listStyle: "none",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          marginBottom: "32px",
+        }}
+      >
+        <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+          <span style={{ color: "var(--accent-gold)", flexShrink: 0 }}>→</span>
+          <span>
+            Hackathon winner — <strong>₹1.34L prize</strong>, Top 10 finishes
+            across national &amp; international competitions
+          </span>
+        </li>
+        <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+          <span style={{ color: "var(--accent-gold)", flexShrink: 0 }}>→</span>
+          <span>
+            Building and shipping SaaS products — from idea to production
+          </span>
+        </li>
+      </ul>
       {/* Buttons */}
       <div className="hero-btns" data-reveal data-reveal-delay="160">
         <a href="/resume.pdf" className="btn-dark">
