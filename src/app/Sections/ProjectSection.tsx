@@ -8,7 +8,6 @@ import NodeJs from "../icons/Nodejs.svg";
 import AWS from "../icons/Aws.svg";
 import SolarchatPro from "../images/solarchatpro.png";
 import ClauseAi from "../images/clause-ai.png";
-import Stack from "../icons/stack.svg";
 
 const projects = [
   {

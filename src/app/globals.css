@@ -1330,7 +1330,7 @@ html.light .theme-icon--sun {
   width: 28px;
   height: 28px;
   border-radius: var(--r-md);
-  color: var(--text-dark);
+  color: var(--text-bright);
   transition: var(--transition-fast);
 }
 .proj-link-btn:hover {
@@ -1387,6 +1387,7 @@ html.light .theme-icon--sun {
   background: var(--chip-bg-hover);
   border-color: var(--chip-border-hover);
 }
+
 .proj-tech-icon-img {
   opacity: 0.85;
   filter: brightness(1.05);
