@@ -50,12 +50,6 @@ export default function ExperienceSection() {
               <div className="exp-meta">
                 <div className="exp-company-row">
                   <span className="exp-company">{exp.company}</span>
-                  {exp.status === "Working" && (
-                    <span className="exp-status-badge">
-                      <span className="ldot" />
-                      Current
-                    </span>
-                  )}
                 </div>
                 <div className="exp-role">{exp.role}</div>
               </div>
