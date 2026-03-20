@@ -30,10 +30,10 @@
   /* Text — bumped for readability */
   --text-white: #f0f0f0;
   --text-bright: #e8e8e8;
-  --text-base: #d0d0d0;       /* was #c8c8c8 — slightly brighter */
-  --text-muted: #a0a0a0;      /* was #888888 — much more readable */
-  --text-dim: #808080;        /* was #666666 — lifted for legibility */
-  --text-dark: #606060;       /* was #444444 */
+  --text-base: #d0d0d0; /* was #c8c8c8 — slightly brighter */
+  --text-muted: #a0a0a0; /* was #888888 — much more readable */
+  --text-dim: #808080; /* was #666666 — lifted for legibility */
+  --text-dark: #606060; /* was #444444 */
   --text-darker: #404040;
   --text-faint: #333333;
 
@@ -126,8 +126,7 @@
 
   /* Shadows */
   --shadow-nav:
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 8px 40px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 40px rgba(0, 0, 0, 0.6),
     0 2px 8px rgba(0, 0, 0, 0.5);
 
   /* Transitions */
@@ -144,19 +143,19 @@
 
 /* ── LIGHT MODE ──────────────────────────────── */
 html.light {
-  /* Backgrounds */
-  --bg: #f4f1ec;
-  --bg-1: #edeae4;
-  --bg-2: #e8e4de;
-  --bg-3: #e2ddd6;
-  --bg-4: #ddd8d0;
+  /* Page background — warm parchment, slightly deeper so glass lifts off it */
+  --bg: #ede9e0;
+  --bg-1: #e8e4da;
+  --bg-2: #e3ded3;
+  --bg-3: #ddd8cc;
+  --bg-4: #d8d2c5;
 
   /* Borders */
-  --border: #d8d3cb;
-  --border-1: #d0cac1;
-  --border-2: #c8c1b7;
-  --border-3: #bfb8ac;
-  --border-4: #b5ada0;
+  --border: #d2cbbf;
+  --border-1: #c9c1b3;
+  --border-2: #c0b7a8;
+  --border-3: #b6ac9c;
+  --border-4: #aca08f;
 
   /* Text */
   --text-white: #111111;
@@ -169,41 +168,43 @@ html.light {
   --text-faint: #adadad;
 
   /* Accents */
-  --accent-gold: #b07d10;
-  --accent-gold-bg: rgba(176, 125, 16, 0.08);
-  --accent-gold-border: rgba(176, 125, 16, 0.22);
-  --accent-green: #16a34a;
-  --accent-green-bg: rgba(22, 163, 74, 0.08);
-  --accent-green-border: rgba(22, 163, 74, 0.22);
-  --accent-green-solid: #16a34a;
-  --accent-green-pulse: rgba(22, 163, 74, 0.25);
+  --accent-gold: #9a6a06;
+  --accent-gold-bg: rgba(154, 106, 6, 0.09);
+  --accent-gold-border: rgba(154, 106, 6, 0.22);
+  --accent-green: #15803d;
+  --accent-green-bg: rgba(21, 128, 61, 0.08);
+  --accent-green-border: rgba(21, 128, 61, 0.22);
+  --accent-green-solid: #15803d;
+  --accent-green-pulse: rgba(21, 128, 61, 0.22);
 
-  /* Nav */
-  --nav-bg: rgba(244, 241, 236, 0.9);
+  /* Nav — frosted glass values */
+  --nav-bg: rgba(255, 252, 245, 0.68);
   --nav-border: rgba(0, 0, 0, 0.1);
-  --nav-link-hover-bg: rgba(0, 0, 0, 0.06);
-  --nav-btn-hover-bg: rgba(0, 0, 0, 0.06);
+  --nav-link-hover-bg: rgba(0, 0, 0, 0.055);
+  --nav-btn-hover-bg: rgba(0, 0, 0, 0.055);
 
-  /* Cards */
-  --card-bg: var(--bg-1);
+  /* Cards — frosted glass values */
+  --card-bg: rgba(255, 252, 245, 0.6);
   --card-border: var(--border-1);
-  --chip-bg: rgba(0, 0, 0, 0.04);
-  --chip-border: rgba(0, 0, 0, 0.08);
-  --chip-bg-hover: rgba(0, 0, 0, 0.08);
-  --chip-border-hover: rgba(0, 0, 0, 0.15);
-  --chip-color: #5a5a5a;
-  --chip-color-hover: #111111;
+
+  /* Chips */
+  --chip-bg: rgba(255, 252, 245, 0.55);
+  --chip-border: rgba(160, 148, 128, 0.38);
+  --chip-bg-hover: rgba(255, 252, 245, 0.85);
+  --chip-border-hover: rgba(140, 128, 108, 0.55);
+  --chip-color: #565046;
+  --chip-color-hover: #1a1714;
 
   /* Stack icon */
-  --stack-icon-bg: var(--bg-4);
-  --stack-icon-border: var(--border-2);
-  --stack-icon-hover-bg: var(--bg-3);
-  --stack-icon-hover-border: var(--border-4);
+  --stack-icon-bg: rgba(255, 252, 245, 0.55);
+  --stack-icon-border: rgba(160, 148, 128, 0.38);
+  --stack-icon-hover-bg: rgba(255, 252, 245, 0.9);
+  --stack-icon-hover-border: rgba(140, 128, 108, 0.55);
   --stack-tooltip-bg: #1c1c1c;
   --stack-tooltip-border: #333;
 
   /* Scrollbar */
-  --scrollbar-thumb: #c8c0b4;
+  --scrollbar-thumb: #c5bcad;
   --scrollbar-thumb-hover: var(--border-4);
 
   /* Buttons */
@@ -212,30 +213,142 @@ html.light {
   --btn-dark-color: #f0f0f0;
   --btn-dark-hover-bg: #2a2a2a;
   --btn-dark-hover-border: #444;
-  --btn-ghost-border: #c0b8ae;
+  --btn-ghost-border: rgba(160, 148, 128, 0.55);
   --btn-ghost-color: var(--text-bright);
-  --btn-ghost-hover-border: #a09890;
+  --btn-ghost-hover-border: rgba(130, 118, 98, 0.7);
   --btn-ghost-hover-color: var(--text-white);
-  --btn-ghost-hover-bg: rgba(0, 0, 0, 0.05);
+  --btn-ghost-hover-bg: rgba(0, 0, 0, 0.04);
 
   /* Shadows */
   --shadow-nav:
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 8px 40px rgba(0, 0, 0, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.08);
+    0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 8px 32px rgba(90, 75, 50, 0.12),
+    0 2px 6px rgba(90, 75, 50, 0.08);
 }
 
-/* ── GLOBAL TRANSITIONS for theme switch ─────── */
+/* ══════════════════════════════════════════════
+   LIGHT MODE GLASS SURFACES
+   Each surface = semi-transparent warm white +
+   backdrop-filter blur + top highlight inset +
+   warm-toned drop shadow. Matches dark mode's
+   depth layering but using light frosted glass.
+   ══════════════════════════════════════════════ */
+
+/* Nav bar — floating frosted pill */
+html.light .nav-bar {
+  background: var(--nav-bg);
+  backdrop-filter: blur(32px) saturate(200%) brightness(1.06);
+  -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.06);
+  border: 1px solid rgba(175, 162, 140, 0.3);
+  box-shadow:
+    /* top inner highlight — the key glass cue */
+    0 1px 0 rgba(255, 255, 255, 0.92) inset,
+    /* bottom inner shadow for thickness */ 0 -1px 0 rgba(120, 105, 80, 0.06)
+      inset,
+    /* warm ambient drop shadow */ 0 8px 28px rgba(90, 75, 50, 0.11),
+    0 2px 6px rgba(90, 75, 50, 0.07);
+}
+
+/* Experience card — frosted glass panel */
+html.light .exp-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+  border: 1px solid rgba(175, 162, 140, 0.28);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.88) inset,
+    0 -1px 0 rgba(120, 105, 80, 0.05) inset,
+    0 4px 20px rgba(90, 75, 50, 0.09),
+    0 1px 4px rgba(90, 75, 50, 0.06);
+}
+
+/* Project card — frosted glass panel */
+html.light .proj-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+  border: 1px solid rgba(175, 162, 140, 0.28);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.88) inset,
+    0 -1px 0 rgba(120, 105, 80, 0.05) inset,
+    0 4px 20px rgba(90, 75, 50, 0.09),
+    0 1px 4px rgba(90, 75, 50, 0.06);
+}
+
+/* Stack icon buttons — small glass pills */
+html.light .stack-icon {
+  background: var(--stack-icon-bg);
+  backdrop-filter: blur(14px) saturate(160%) brightness(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(160%) brightness(1.05);
+  border: 1px solid rgba(175, 162, 140, 0.32);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.82) inset,
+    0 2px 8px rgba(90, 75, 50, 0.08);
+}
+html.light .stack-icon:hover {
+  background: var(--stack-icon-hover-bg);
+  border-color: rgba(155, 140, 118, 0.5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 12px 28px rgba(90, 75, 50, 0.14),
+    0 2px 6px rgba(90, 75, 50, 0.09);
+}
+
+/* Tech chips */
+html.light .exp-tech-chip {
+  background: var(--chip-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--chip-border);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.72) inset;
+}
+html.light .exp-tech-chip:hover {
+  background: var(--chip-bg-hover);
+  border-color: var(--chip-border-hover);
+}
+
+/* Project tech icons */
+html.light .proj-tech-icon {
+  background: var(--chip-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--chip-border);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.72) inset;
+}
+html.light .proj-tech-icon:hover {
+  background: var(--chip-bg-hover);
+  border-color: var(--chip-border-hover);
+}
+
+/* Header divider inside exp card */
+html.light .exp-header {
+  border-bottom-color: rgba(170, 158, 136, 0.3);
+}
+
+/* Proj image placeholder bg */
+html.light .proj-img-wrap {
+  background: rgba(220, 214, 204, 0.5);
+}
+
+/* ── BASE HTML ───────────────────────────────── */
 html {
   background: var(--bg);
   scroll-behavior: auto;
 }
 
-/* Everything transitions smoothly except images */
-*:not(img):not(svg):not(canvas) {
+/*
+  Theme transitions — only active while JS-controlled .theme-transitioning
+  is on <html>. html+body are excluded so their bg switches instantly,
+  hidden behind the ripple. Everything else cross-fades smoothly.
+*/
+html.theme-transitioning
+  *:not(html):not(body):not(img):not(svg):not(canvas):not(.theme-ripple-svg) {
   transition-property: background-color, border-color, color, box-shadow;
-  transition-duration: 0.35s;
+  transition-duration: 0.32s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+html.theme-transitioning,
+html.theme-transitioning body {
+  transition: none !important;
 }
 
 /* ── RESET ───────────────────────────────────── */
@@ -311,7 +424,8 @@ body::before {
 
 /* ── ANIMATIONS ──────────────────────────────── */
 @keyframes livepulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 0 0 var(--accent-green-pulse);
   }
@@ -322,8 +436,12 @@ body::before {
 }
 
 @keyframes mq {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ── SCROLLBAR ───────────────────────────────── */
@@ -372,7 +490,12 @@ body::before {
   inset: 0;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 30%,
+    transparent 100%
+  );
   mask-image: linear-gradient(to bottom, black 0%, black 30%, transparent 100%);
 }
 
@@ -490,8 +613,10 @@ body::before {
   width: 100%;
   margin: 16px auto 0;
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px) saturate(160%)
+    brightness(var(--nav-blur-brightness, 1));
+  -webkit-backdrop-filter: blur(24px) saturate(160%)
+    brightness(var(--nav-blur-brightness, 1));
   border-radius: var(--r-xl);
   border: 1px solid var(--nav-border);
 }
@@ -561,7 +686,9 @@ body::before {
   flex-shrink: 0;
   margin-left: auto;
   overflow: hidden;
-  transition: background 0.15s ease, color 0.15s ease !important;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease !important;
 }
 .nav-theme-btn:hover {
   background: var(--nav-btn-hover-bg);
@@ -769,8 +896,8 @@ html.light .theme-icon--sun {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--r-xl);
   background: var(--stack-icon-bg);
   border: 1px solid var(--stack-icon-border);
@@ -807,9 +934,10 @@ html.light .theme-icon--sun {
   bottom: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  background: var(--stack-tooltip-bg);
-  border: 1px solid var(--stack-tooltip-border);
-  color: var(--text-bright);
+  /* Always dark regardless of theme — high contrast on both backgrounds */
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #f0f0f0; /* ← hardcoded light, NOT a var */
   font-family: var(--font-body);
   font-size: var(--fs-12);
   font-weight: var(--fw-medium);
@@ -823,7 +951,29 @@ html.light .theme-icon--sun {
     transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   z-index: 10;
   letter-spacing: 0.01em;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.stack-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333; /* ← hardcoded, matches border */
+}
+
+.stack-tooltip::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #1a1a1a; /* ← hardcoded, matches bg */
+  z-index: 1;
+  margin-top: -1px;
 }
 .stack-tooltip::after {
   content: "";
@@ -1289,4 +1439,92 @@ html.light .theme-icon--sun {
   .exp-period-col {
     display: none;
   }
+}
+/* ── HACKATHON TROPHY ROW ────────────────────── */
+/* Paste at the bottom of globals.css             */
+
+.hero-hackathons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.hack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px 7px 10px;
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-2);
+  width: fit-content;
+  transition: var(--transition-fast);
+}
+
+.hack-chip:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-4);
+}
+
+/* Live hackathon variant — subtle gold tint */
+.hack-chip--live {
+  background: var(--accent-gold-bg);
+  border-color: var(--accent-gold-border);
+}
+
+.hack-medal {
+  font-size: 15px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hack-body {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hack-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-semibold);
+  color: var(--text-bright);
+  white-space: nowrap;
+}
+
+.hack-event {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-regular);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* Light mode adjusts automatically via var() */
+html.light .hack-chip {
+  background: rgba(0, 0, 0, 0.03);
+}
+html.light .hack-chip:hover {
+  background: rgba(0, 0, 0, 0.055);
+}
+html.light .hack-chip--live {
+  background: var(--accent-gold-bg);
+}
+
+/* ── HERO INLINE HELPERS ─────────────────────── */
+.hero-inline-link {
+  color: var(--accent-gold);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.hero-inline-link:hover {
+  opacity: 0.75;
+}
+
+.hero-strong {
+  color: var(--text-bright);
+  font-weight: var(--fw-bold);
 }
