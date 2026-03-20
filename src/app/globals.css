@@ -964,13 +964,12 @@ body::before {
 .exp-stack-label {
   font-family: var(--font-body);
   font-size: var(--fs-11);
-  font-weight: var(--fw-medium);
-  color: var(--text-dark);
+  font-weight: var(--fw-semibold);
+  color: var(--text-dim);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   margin-bottom: 14px;
 }
-
 .exp-stack-chips {
   display: flex;
   flex-wrap: wrap;
@@ -983,20 +982,25 @@ body::before {
   gap: 7px;
   padding: 5px 12px 5px 9px;
   border-radius: var(--r-md);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   font-family: var(--font-body);
   font-size: var(--fs-13);
   font-weight: var(--fw-medium);
-  color: #888;
+  color: #999;
   white-space: nowrap;
   transition: var(--transition-fast);
   cursor: default;
 }
+
 .exp-tech-chip:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: #d0d0d0;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e8e8e8;
 }
 
 .exp-tech-chip-icon {
-  opacity: 0.8;
+  opacity: 0.9;
+  filter: brightness(1.1);
 }
+  

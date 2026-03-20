@@ -95,7 +95,6 @@ export default function ExperienceSection() {
 
             {/* Tech stack chips */}
             <div className="exp-stack">
-              <p className="exp-stack-label">Stack Used</p>
               <div className="exp-stack-chips">
                 {techStack.map((tech, i) => (
                   <div key={i} className="exp-tech-chip">
