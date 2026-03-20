@@ -3,6 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("/public/fonts/HKGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Backgrounds */
   --bg: #050505;
@@ -40,7 +48,7 @@
 
   /* Fonts */
   --font-display: "Syne", sans-serif;
-  --font-body: "HK Grotesk", -apple-system, sans-serif;
+  --font-body: "Hanken Grotesk", -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 
   /* Weights */
@@ -340,6 +348,7 @@ body::before {
    Size: clamp(28px, 4vw, 38px) — compact like ref
    ───────────────────────────────────────────── */
 .hero {
+  min-height: 100vh;
   padding-top: 120px;
   padding-bottom: 80px;
 }
@@ -595,7 +604,7 @@ body::before {
 
 /* ── EXPERIENCE ──────────────────────────────── */
 .exp-section {
-  padding-bottom: 16px;
+  padding-bottom: 80px;
 }
 
 .exp-label {
@@ -758,4 +767,95 @@ body::before {
   .exp-period-col {
     display: none;
   }
+}
+
+/* ── TECH STACK ICONS ────────────────────────── */
+.hero-stack-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+  border-top: 1px solid var(--border-1);
+}
+
+.stack-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-lg);
+  background: var(--bg-4);
+  border: 1px solid var(--border-2);
+  cursor: pointer;
+  transition: var(--transition-base);
+  flex-shrink: 0;
+}
+.stack-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.stack-icon:hover {
+  background: var(--bg-3);
+  border-color: var(--border-4);
+  transform: translateY(-3px);
+}
+
+.stack-tooltip {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--bg-4);
+  border: 1px solid var(--border-4);
+  color: var(--text-bright);
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: var(--r-md);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.18s ease,
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+.stack-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--border-4);
+}
+.stack-tooltip::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--bg-4);
+  z-index: 1;
+  margin-top: -1px;
+}
+.stack-icon:hover .stack-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.stack-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-medium);
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 64px;
 }

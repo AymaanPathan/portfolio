@@ -1,4 +1,21 @@
 "use client";
+import Image from "next/image";
+import NextJs from "../icons/NextJs.svg";
+import Javascript from "../icons/JavaScript.svg";
+import Typescript from "../icons/Typescript.svg";
+import Tailwind from "../icons/Tailwind.svg";
+import Redis from "../icons/Redis.svg";
+import React from "../icons/React.svg";
+import Redux from "../icons/Redux.svg";
+import GraphQL from "../icons/GraphQl.svg";
+import NodeJs from "../icons/Nodejs.svg";
+import Firebase from "../icons/Firebase.svg";
+import MongoDB from "../icons/MongoDb.svg";
+import Postman from "../icons/Postman.svg";
+import Docker from "../icons/Docker.svg";
+import AWS from "../icons/Aws.svg";
+import Prisma from "../icons/Prisma.svg";
+import MySQL from "../icons/MySql.svg";
 
 export default function HeroSection() {
   return (
@@ -27,6 +44,7 @@ export default function HeroSection() {
               width: "5px",
               height: "5px",
               borderRadius: "50%",
+              background: "var(--text-white)",
               flexShrink: 0,
               marginTop: "9px",
             }}
@@ -117,6 +135,114 @@ export default function HeroSection() {
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
           </svg>
         </a>
+      </div>
+      {/* Tech Stack Icons */}
+      <p className="stack-label" data-reveal data-reveal-delay="280">
+        Tech Stack I Work With
+      </p>
+      <div className="hero-stack-wrap" data-reveal data-reveal-delay="300">
+        {[
+          {
+            name: "Next.js",
+            href: "https://nextjs.org/docs",
+            icon: <Image src={NextJs} alt="Next.js" width={28} height={28} />,
+          },
+          {
+            name: "JavaScript",
+            href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            icon: (
+              <Image src={Javascript} alt="JavaScript" width={24} height={24} />
+            ),
+          },
+          {
+            name: "TypeScript",
+            href: "https://www.typescriptlang.org/docs/",
+            icon: (
+              <Image src={Typescript} alt="TypeScript" width={24} height={24} />
+            ),
+          },
+          {
+            name: "Tailwind CSS",
+            href: "https://tailwindcss.com/docs",
+            icon: (
+              <Image src={Tailwind} alt="Tailwind CSS" width={24} height={24} />
+            ),
+          },
+          {
+            name: "Redis",
+            href: "https://redis.io/docs/latest/",
+            icon: <Image src={Redis} alt="Redis" width={24} height={24} />,
+          },
+          {
+            name: "React",
+            href: "https://reactjs.org/docs/getting-started.html",
+            icon: <Image src={React} alt="React" width={24} height={24} />,
+          },
+          {
+            name: "Redux",
+            href: "https://redux.js.org/introduction/getting-started",
+            icon: <Image src={Redux} alt="Redux" width={24} height={24} />,
+          },
+          {
+            name: "GraphQL",
+            href: "https://graphql.org/learn/",
+            icon: <Image src={GraphQL} alt="GraphQL" width={24} height={24} />,
+          },
+          {
+            name: "NodeJs",
+            href: "https://nodejs.org/en/docs/",
+            icon: <Image src={NodeJs} alt="Node.js" width={24} height={24} />,
+          },
+          {
+            name: "Firebase",
+            href: "https://firebase.google.com/docs",
+            icon: (
+              <Image src={Firebase} alt="Firebase" width={24} height={24} />
+            ),
+          },
+          {
+            name: "MongoDB",
+            href: "https://www.mongodb.com/docs/",
+            icon: <Image src={MongoDB} alt="MongoDB" width={24} height={24} />,
+          },
+          {
+            name: "Postman",
+            href: "https://learning.postman.com/docs/getting-started/introduction/",
+            icon: <Image src={Postman} alt="Postman" width={24} height={24} />,
+          },
+          {
+            name: "Docker",
+            href: "https://docs.docker.com/",
+            icon: <Image src={Docker} alt="Docker" width={24} height={24} />,
+          },
+          {
+            name: "AWS",
+            href: "https://docs.aws.amazon.com/",
+            icon: <Image src={AWS} alt="AWS" width={24} height={24} />,
+          },
+          {
+            name: "Prisma",
+            href: "https://www.prisma.io/docs",
+            icon: <Image src={Prisma} alt="Prisma" width={24} height={24} />,
+          },
+          {
+            name: "MySQL",
+            href: "https://dev.mysql.com/doc/",
+            icon: <Image src={MySQL} alt="MySQL" width={24} height={24} />,
+          },
+        ].map((tech, i) => (
+          <a
+            key={i}
+            href={tech.href}
+            className="stack-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={tech.name}
+          >
+            {tech.icon}
+            <span className="stack-tooltip">{tech.name}</span>
+          </a>
+        ))}
       </div>
     </section>
   );
