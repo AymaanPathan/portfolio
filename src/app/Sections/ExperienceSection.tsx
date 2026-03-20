@@ -1,4 +1,12 @@
 "use client";
+import Image from "next/image";
+import NextJs from "../icons/NextJs.svg";
+import ReactIcon from "../icons/React.svg";
+import AWS from "../icons/Aws.svg";
+import NodeJs from "../icons/Nodejs.svg";
+import MongoDB from "../icons/MongoDb.svg";
+import GraphQL from "../icons/GraphQl.svg";
+import Redis from "../icons/Redis.svg";
 
 const experiences = [
   {
@@ -6,12 +14,10 @@ const experiences = [
     company: "Frelit Energy Pvt. Limited",
     role: "Full Stack Developer",
     period: "2024 – Present",
-    location: "On-site",
+    location: "On-site · Vadodara, IN",
     status: "Working",
-    logo: "FE",
-    logoColor: "#16a34a",
-    logoBg: "#052e16",
     bullets: [
+      "Currently building SolarChat Pro (solarchatpro.com) — a SaaS product, in progress.",
       "Built production-grade CRM from scratch serving 7 departments — reduced operational costs by 74% and increased sales conversions by 65%.",
       "Developed React Native telecaller app with auto-dialing and WhatsApp automation reaching 1,000+ leads daily via cron-scheduled campaigns.",
       "Architected role-based access control with hierarchical permissions, real-time Kanban pipeline, and cross-team task assignment.",
@@ -20,35 +26,34 @@ const experiences = [
   },
 ];
 
+const techStack = [
+  { name: "Next.js", icon: NextJs },
+  { name: "React", icon: ReactIcon },
+  { name: "AWS", icon: AWS },
+  { name: "Node.js", icon: NodeJs },
+  { name: "MongoDB", icon: MongoDB },
+  { name: "GraphQL", icon: GraphQL },
+  { name: "Redis", icon: Redis },
+];
+
 export default function ExperienceSection() {
   return (
-    <section className="exp-section" id="work">
-      <div className="exp-label">Featured</div>
+    <section className="exp-section" id="work" data-reveal>
+      <p className="exp-label">Career</p>
       <h2 className="exp-heading">Experience</h2>
 
       <div className="exp-list">
         {experiences.map((exp) => (
           <div key={exp.id} className="exp-card">
-            {/* Top row */}
+            {/* Header */}
             <div className="exp-header">
-              <div
-                className="exp-logo"
-                style={{
-                  background: exp.logoBg,
-                  color: exp.logoColor,
-                  border: `1px solid ${exp.logoColor}22`,
-                }}
-              >
-                {exp.logo}
-              </div>
-
               <div className="exp-meta">
                 <div className="exp-company-row">
                   <span className="exp-company">{exp.company}</span>
                   {exp.status === "Working" && (
                     <span className="exp-status-badge">
                       <span className="ldot" />
-                      Working
+                      Current
                     </span>
                   )}
                 </div>
@@ -65,11 +70,47 @@ export default function ExperienceSection() {
             <ul className="exp-bullets">
               {exp.bullets.map((b, i) => (
                 <li key={i} className="exp-bullet">
-                  <span className="exp-bullet-dot" />
-                  <span>{b}</span>
+                  <span
+                    className={`exp-bullet-dot${i === 0 ? " exp-bullet-dot--gold" : ""}`}
+                  />
+                  {i === 0 ? (
+                    <span>
+                      Currently building{" "}
+                      <a
+                        href="https://solarchatpro.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="exp-saas-link"
+                      >
+                        SolarChat Pro ↗
+                      </a>{" "}
+                      — a SaaS product, in progress.
+                    </span>
+                  ) : (
+                    <span>{b}</span>
+                  )}
                 </li>
               ))}
             </ul>
+
+            {/* Tech stack chips */}
+            <div className="exp-stack">
+              <p className="exp-stack-label">Stack Used</p>
+              <div className="exp-stack-chips">
+                {techStack.map((tech, i) => (
+                  <div key={i} className="exp-tech-chip">
+                    <Image
+                      src={tech.icon}
+                      alt={tech.name}
+                      width={15}
+                      height={15}
+                      className="exp-tech-chip-icon"
+                    />
+                    {tech.name}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         ))}
       </div>

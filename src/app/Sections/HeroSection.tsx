@@ -44,14 +44,22 @@ export default function HeroSection() {
               width: "5px",
               height: "5px",
               borderRadius: "50%",
-              background: "var(--text-white)",
+              background: "var(--accent-gold)",
               flexShrink: 0,
               marginTop: "9px",
             }}
           />
           <span>
-            Hackathon winner — <strong>₹1.34L prize Solo</strong>, Top 10
-            finishes across national &amp; international competitions
+            Hackathon winner —{" "}
+            <strong
+              style={{
+                color: "var(--accent-gold)",
+                fontWeight: "var(--fw-bold)",
+              }}
+            >
+              ₹1.34 Lakhs prize Solo
+            </strong>
+            , Top 10 finishes across national &amp; international competitions
           </span>
         </li>
         <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
@@ -60,7 +68,7 @@ export default function HeroSection() {
               width: "5px",
               height: "5px",
               borderRadius: "50%",
-              background: "var(--text-white)",
+              background: "var(--accent-gold)",
               flexShrink: 0,
               marginTop: "9px",
             }}
@@ -136,6 +144,7 @@ export default function HeroSection() {
           </svg>
         </a>
       </div>
+
       {/* Tech Stack Icons */}
       <p className="stack-label" data-reveal data-reveal-delay="280">
         Tech Stack I Work With
@@ -145,90 +154,90 @@ export default function HeroSection() {
           {
             name: "Next.js",
             href: "https://nextjs.org/docs",
-            icon: <Image src={NextJs} alt="Next.js" width={28} height={28} />,
+            icon: <Image src={NextJs} alt="Next.js" width={32} height={32} />,
           },
           {
             name: "JavaScript",
             href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
             icon: (
-              <Image src={Javascript} alt="JavaScript" width={24} height={24} />
+              <Image src={Javascript} alt="JavaScript" width={32} height={32} />
             ),
           },
           {
             name: "TypeScript",
             href: "https://www.typescriptlang.org/docs/",
             icon: (
-              <Image src={Typescript} alt="TypeScript" width={24} height={24} />
+              <Image src={Typescript} alt="TypeScript" width={32} height={32} />
             ),
           },
           {
             name: "Tailwind CSS",
             href: "https://tailwindcss.com/docs",
             icon: (
-              <Image src={Tailwind} alt="Tailwind CSS" width={24} height={24} />
+              <Image src={Tailwind} alt="Tailwind CSS" width={32} height={32} />
             ),
           },
           {
             name: "Redis",
             href: "https://redis.io/docs/latest/",
-            icon: <Image src={Redis} alt="Redis" width={24} height={24} />,
+            icon: <Image src={Redis} alt="Redis" width={32} height={32} />,
           },
           {
             name: "React",
             href: "https://reactjs.org/docs/getting-started.html",
-            icon: <Image src={React} alt="React" width={24} height={24} />,
+            icon: <Image src={React} alt="React" width={32} height={32} />,
           },
           {
             name: "Redux",
             href: "https://redux.js.org/introduction/getting-started",
-            icon: <Image src={Redux} alt="Redux" width={24} height={24} />,
+            icon: <Image src={Redux} alt="Redux" width={32} height={32} />,
           },
           {
             name: "GraphQL",
             href: "https://graphql.org/learn/",
-            icon: <Image src={GraphQL} alt="GraphQL" width={24} height={24} />,
+            icon: <Image src={GraphQL} alt="GraphQL" width={32} height={32} />,
           },
           {
             name: "NodeJs",
             href: "https://nodejs.org/en/docs/",
-            icon: <Image src={NodeJs} alt="Node.js" width={24} height={24} />,
+            icon: <Image src={NodeJs} alt="Node.js" width={32} height={32} />,
           },
           {
             name: "Firebase",
             href: "https://firebase.google.com/docs",
             icon: (
-              <Image src={Firebase} alt="Firebase" width={24} height={24} />
+              <Image src={Firebase} alt="Firebase" width={32} height={32} />
             ),
           },
           {
             name: "MongoDB",
             href: "https://www.mongodb.com/docs/",
-            icon: <Image src={MongoDB} alt="MongoDB" width={24} height={24} />,
+            icon: <Image src={MongoDB} alt="MongoDB" width={32} height={32} />,
           },
           {
             name: "Postman",
             href: "https://learning.postman.com/docs/getting-started/introduction/",
-            icon: <Image src={Postman} alt="Postman" width={24} height={24} />,
+            icon: <Image src={Postman} alt="Postman" width={32} height={32} />,
           },
           {
             name: "Docker",
             href: "https://docs.docker.com/",
-            icon: <Image src={Docker} alt="Docker" width={24} height={24} />,
+            icon: <Image src={Docker} alt="Docker" width={32} height={32} />,
           },
           {
             name: "AWS",
             href: "https://docs.aws.amazon.com/",
-            icon: <Image src={AWS} alt="AWS" width={24} height={24} />,
+            icon: <Image src={AWS} alt="AWS" width={32} height={32} />,
           },
           {
             name: "Prisma",
             href: "https://www.prisma.io/docs",
-            icon: <Image src={Prisma} alt="Prisma" width={24} height={24} />,
+            icon: <Image src={Prisma} alt="Prisma" width={32} height={32} />,
           },
           {
             name: "MySQL",
             href: "https://dev.mysql.com/doc/",
-            icon: <Image src={MySQL} alt="MySQL" width={24} height={24} />,
+            icon: <Image src={MySQL} alt="MySQL" width={32} height={32} />,
           },
         ].map((tech, i) => (
           <a
