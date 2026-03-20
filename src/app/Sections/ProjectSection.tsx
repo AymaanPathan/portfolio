@@ -8,7 +8,7 @@ import NodeJs from "../icons/Nodejs.svg";
 import AWS from "../icons/Aws.svg";
 import SolarchatPro from "../images/solarchatpro.png";
 import ClauseAi from "../images/clause-ai.png";
-
+import Orchestrix from "../images/Orchestrix.png";
 const projects = [
   {
     id: "solarchat",
@@ -37,6 +37,24 @@ const projects = [
     github: "https://github.com/AymaanPathan/ClauseAI",
     status: "Live",
     image: ClauseAi,
+    tech: [
+      { name: "Next.js", icon: NextJs },
+      { name: "React", icon: React },
+      { name: "Node.js", icon: NodeJs },
+      { name: "MongoDB", icon: MongoDB },
+
+      { name: "TypeScript", icon: Typescript },
+    ],
+  },
+  {
+    id: "orchestrix",
+    title: "Orchestrix",
+    description:
+      "Visual backend builder that converts plain English into production-ready APIs — type what you want, AI generates Motia workflow nodes, connects them, and deploys instantly. No backend code required.",
+    url: null,
+    github: "https://github.com/AymaanPathan/Orchestrix",
+    status: "Live",
+    image: Orchestrix,
     tech: [
       { name: "Next.js", icon: NextJs },
       { name: "React", icon: React },

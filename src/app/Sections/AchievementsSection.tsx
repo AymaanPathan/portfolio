@@ -21,7 +21,6 @@ const achievements = [
     description:
       "Built InfraPilot — an AI-powered Kubernetes dashboard that generates real-time UI from natural language using Generative UI.",
   },
-
   {
     id: "multilingual",
     rank: "03",
@@ -57,13 +56,19 @@ export default function AchievementsSection() {
             >
               {a.rank}
             </span>
-            <div className="ach-divider" />
+
+            <div className="ach-top">
+              {a.prize && <span className="ach-prize">{a.prize}</span>}
+              <span className="ach-event ach-event--shiny">{a.event}</span>
+            </div>
+
+            {/* divider — hidden on mobile via CSS */}
+            <div className="ach-divider-el" />
+
             <div className="ach-body">
               <span className="ach-title">{a.title}</span>
               <p className="ach-desc">{a.description}</p>
             </div>
-            {a.prize && <span className="ach-prize">{a.prize}</span>}
-            <span className="ach-event">{a.event}</span>
           </div>
         ))}
       </div>
