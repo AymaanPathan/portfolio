@@ -12,7 +12,7 @@ const experiences = [
   {
     id: "frelit",
     company: "Frelit Energy Pvt. Limited",
-    role: "Full Stack Developer",
+    role: "Software Developer",
     period: "2024 – Present",
     location: "On-site · Vadodara, IN",
     status: "Working",

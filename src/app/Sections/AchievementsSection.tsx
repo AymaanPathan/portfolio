@@ -6,35 +6,35 @@ const achievements = [
     rank: "01",
     rankFirst: true,
     title: "Backend Reloaded Hackathon",
-    prize: "Won ₹1.34L · 4,000+ participants",
-    event: "1st Place",
+    prize: "1st Place",
+    event: "Won ₹1.34L · 4,000+ participants",
     description:
       "Built Orchestrix — a visual backend builder that converts plain English into production-ready APIs using node-based workflows.",
   },
   {
-      id: "ui-strikes",
-      rank: "04",
-      rankFirst: false,
-      title: "The UI Strikes Back",
-      prize: null,
-      event: "4th Rank · 5,000+ participants",
-      description:
+    id: "ui-strikes",
+    rank: "02",
+    rankFirst: false,
+    title: "The UI Strikes Back",
+    prize: null,
+    event: "4th Rank · 5,000+ participants",
+    description:
       "Built InfraPilot — an AI-powered Kubernetes dashboard that generates real-time UI from natural language using Generative UI.",
-    },
-    
-      {
-        id: "multilingual",
-        rank: "03",
-        rankFirst: false,
-        title: "The Multilingual Hackathon",
-        prize: null,
-        event: "7th Place · 1,000+ participants",
-        description:
-          "Built DevBuddy — breaking language barriers in software development with live comment translation across collaborators.",
-      },
+  },
+
+  {
+    id: "multilingual",
+    rank: "03",
+    rankFirst: false,
+    title: "The Multilingual Hackathon",
+    prize: null,
+    event: "7th Place · 1,000+ participants",
+    description:
+      "Built DevBuddy — breaking language barriers in software development with live comment translation across collaborators.",
+  },
   {
     id: "odoo",
-    rank: "02",
+    rank: "04",
     rankFirst: false,
     title: "Odoo International Hackathon",
     prize: null,

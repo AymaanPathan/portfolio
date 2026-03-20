@@ -1259,25 +1259,33 @@ html.light .theme-icon--sun {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: var(--transition-fast);
+  transition: background 0.2s ease; /* removed transform, just bg shift */
+}
+
+.proj-card:hover {
+  background: var(--bg-2);
 }
 
 .proj-img-wrap {
   width: 100%;
-  overflow: hidden;
-  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
   position: relative;
 }
+
 .proj-img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain;
-  object-position: center top;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .proj-card:hover .proj-img {
+  transform: scale(1.03);
   cursor: pointer;
 }
+
 .proj-img-placeholder {
   width: 100%;
   height: 100%;
@@ -1331,12 +1339,15 @@ html.light .theme-icon--sun {
 }
 
 .proj-desc {
-  font-family: var(--font-body);
-  font-size: var(--fs-13);
-  font-weight: var(--fw-regular);
-  color: var(--text-dim);
-  line-height: 1.75;
+  font-size: var(--fs-12);
+  color: var(--text-dark);
+  line-height: 1.7;
   flex: 1;
+  transition: color 0.2s ease;
+}
+
+.proj-card:hover .proj-desc {
+  color: var(--text-dim);
 }
 
 .proj-tech-wrap {
@@ -1386,7 +1397,7 @@ html.light .theme-icon--sun {
   align-items: center;
   justify-content: space-between;
   padding-top: 12px;
-  border-top: 1px solid var(--border-1);
+  border-top: 1px solid var(--border);
   margin-top: auto;
 }
 
@@ -1400,11 +1411,19 @@ html.light .theme-icon--sun {
   border-radius: var(--r-pill);
   padding: 4px 10px 4px 8px;
 }
+
 .proj-status--live {
-  background: var(--accent-green-bg);
-  border: 1px solid var(--accent-green-border);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-medium);
   color: var(--accent-green);
+  background: none;
+  border: none;
+  padding: 0;
 }
+
 .proj-status--wip {
   background: var(--accent-gold-bg);
   border: 1px solid var(--accent-gold-border);
@@ -1599,7 +1618,7 @@ html.light .hack-chip--live {
 
 .ach-event {
   font-size: var(--fs-12);
-  color: var(--text-muted);
+  color: var(--text-bright);
   white-space: nowrap;
   transition: color 0.15s ease;
 }
@@ -1608,9 +1627,9 @@ html.light .hack-chip--live {
 }
 
 .ach-prize {
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: var(--fw-medium);
-  color: var(--text-muted);
+  color: var(--text-bright);
   background: var(--bg-3);
   border-radius: var(--r-sm);
   padding: 3px 8px;

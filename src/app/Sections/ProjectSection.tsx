@@ -1,27 +1,25 @@
 "use client";
 import Image from "next/image";
 import NextJs from "../icons/NextJs.svg";
-import Javascript from "../icons/JavaScript.svg";
 import Typescript from "../icons/Typescript.svg";
-import Tailwind from "../icons/Tailwind.svg";
 import React from "../icons/React.svg";
 import MongoDB from "../icons/MongoDb.svg";
 import NodeJs from "../icons/Nodejs.svg";
 import AWS from "../icons/Aws.svg";
 import SolarchatPro from "../images/solarchatpro.png";
 import ClauseAi from "../images/clause-ai.png";
+import Stack from "../icons/stack.svg";
 
 const projects = [
   {
     id: "solarchat",
     title: "SolarChat Pro",
     description:
-      "AI-powered chat platform for solar energy businesses — real-time lead qualification, automated follow-ups, and CRM integration built for scale.",
+      "WhatsApp-powered CRM for solar businesses — connects partner conversations with a structured backend, giving teams full visibility without disrupting how partners already work.",
     url: "https://solarchatpro.com",
-    github: null,
+    github: "https://github.com/AymaanPathan/solarchatpro",
     status: "Live",
     image: SolarchatPro,
-    imageBg: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
     tech: [
       { name: "Next.js", icon: NextJs },
       { name: "React", icon: React },
@@ -32,26 +30,23 @@ const projects = [
     ],
   },
   {
-    id: "Clause Ai",
+    id: "clause-ai",
     title: "Clause AI",
     description:
-      "AI-powered legal document analysis tool — automating contract review and compliance checking for law firms.",
+      "Turns plain English agreements into Bitcoin-enforced smart contracts on Stacks — AI parses milestones, sBTC locks funds, and disputes resolve on-chain. No lawyers, no trust required.",
     url: "https://clauseai.com",
-    github: null,
+    github: "https://github.com/AymaanPathan/ClauseAI",
     status: "Live",
     image: ClauseAi,
-    imageBg: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
     tech: [
       { name: "Next.js", icon: NextJs },
       { name: "React", icon: React },
       { name: "Node.js", icon: NodeJs },
       { name: "MongoDB", icon: MongoDB },
-      { name: "AWS", icon: AWS },
       { name: "TypeScript", icon: Typescript },
     ],
   },
 ];
-
 export default function ProjectsSection() {
   return (
     <section className="proj-section" id="projects" data-reveal>
