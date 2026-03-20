@@ -1003,4 +1003,216 @@ body::before {
   opacity: 0.9;
   filter: brightness(1.1);
 }
-  
+
+/* ── PROJECTS ────────────────────────────────── */
+
+.proj-section {
+  padding-bottom: 100px;
+}
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 620px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.proj-card {
+  background: var(--bg-1);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-fast);
+}
+
+/* Image area */
+.proj-img-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg-2);
+}
+
+.proj-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.proj-card:hover .proj-img {
+  transform: scale(1.03);
+}
+
+.proj-img-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+/* Body */
+.proj-body {
+  padding: 20px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+/* Title row */
+.proj-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.proj-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-bold);
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.proj-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.proj-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-md);
+  color: var(--text-dark);
+  transition: var(--transition-fast);
+}
+
+.proj-link-btn:hover {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Description */
+.proj-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-regular);
+  color: var(--text-dim);
+  line-height: 1.75;
+  flex: 1;
+}
+
+/* Tech icons */
+.proj-tech-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proj-tech-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-medium);
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.proj-tech-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.proj-tech-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: var(--transition-fast);
+}
+
+.proj-tech-icon:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.proj-tech-icon-img {
+  opacity: 0.85;
+  filter: brightness(1.05);
+}
+
+/* Footer */
+.proj-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-1);
+  margin-top: auto;
+}
+
+.proj-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--r-pill);
+  padding: 4px 10px 4px 8px;
+}
+
+.proj-status--live {
+  background: var(--accent-green-bg);
+  border: 1px solid var(--accent-green-border);
+  color: var(--accent-green);
+}
+
+.proj-status--wip {
+  background: var(--accent-gold-bg);
+  border: 1px solid var(--accent-gold-border);
+  color: var(--accent-gold);
+}
+
+/* Gold live dot variant */
+.ldot--gold {
+  background: var(--accent-gold);
+  animation: none;
+}
+
+.proj-view-link {
+  font-family: var(--font-body);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-medium);
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.proj-view-link:hover {
+  color: var(--text-white);
+}
