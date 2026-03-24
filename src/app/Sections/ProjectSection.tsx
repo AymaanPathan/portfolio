@@ -9,6 +9,8 @@ import AWS from "../icons/Aws.svg";
 import SolarchatPro from "../images/solarchatpro.png";
 import ClauseAi from "../images/clause-ai.png";
 import Orchestrix from "../images/Orchestrix.png";
+import InfraPilot from "../images/infrapilot.png";
+
 const projects = [
   {
     id: "solarchat",
@@ -55,6 +57,23 @@ const projects = [
     github: "https://github.com/AymaanPathan/Orchestrix",
     status: "Live",
     image: Orchestrix,
+    tech: [
+      { name: "Next.js", icon: NextJs },
+      { name: "React", icon: React },
+      { name: "Node.js", icon: NodeJs },
+      { name: "MongoDB", icon: MongoDB },
+      { name: "TypeScript", icon: Typescript },
+    ],
+  },
+  {
+    id: "infrapilot",
+    title: "InfraPilot",
+    description:
+      "Automated infrastructure management platform that simplifies cloud operations — visualize your infrastructure, automate deployments, and maintain compliance with ease.",
+    url: null,
+    github: "https://github.com/AymaanPathan/InfraPilot",
+    status: "Live",
+    image: InfraPilot,
     tech: [
       { name: "Next.js", icon: NextJs },
       { name: "React", icon: React },
