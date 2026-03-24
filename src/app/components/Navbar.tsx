@@ -5,7 +5,6 @@ import Lenis from "lenis";
 export default function Navbar() {
   const btnRef = useRef<HTMLButtonElement>(null);
   const rippleSvgRef = useRef<SVGSVGElement>(null);
-  // Track current mode via html class (SSR-safe — no useState needed)
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -40,25 +39,20 @@ export default function Navbar() {
     const svg = rippleSvgRef.current;
     if (!btn || !svg) return;
 
-    // Position of button center in viewport
     const rect = btn.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
 
-    // Ripple color = the destination background
     const rippleColor = goingLight ? "#f4f1ec" : "#050505";
 
-    // Create SVG circle
     const NS = "http://www.w3.org/2000/svg";
     const circle = document.createElementNS(NS, "circle");
     circle.setAttribute("cx", String(cx));
     circle.setAttribute("cy", String(cy));
     circle.setAttribute("fill", rippleColor);
-    // Start tiny
     circle.setAttribute("r", "0");
     svg.appendChild(circle);
 
-    // Animate with WAAPI for maximum smoothness
     const maxR =
       Math.ceil(
         Math.hypot(
@@ -79,15 +73,11 @@ export default function Navbar() {
       },
     );
 
-    // Switch theme exactly when ripple fully covers the screen
-    // (at ~60% of the animation = when circle reaches most edges)
     setTimeout(() => {
       html.classList.toggle("light", goingLight);
     }, 300);
 
-    // Remove circle after animation + a tiny hold
     anim.onfinish = () => {
-      // Hold for a frame so there's no flash, then remove
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           circle.remove();
@@ -98,7 +88,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Ripple overlay — sits above everything */}
       <svg
         ref={rippleSvgRef}
         className="theme-ripple-svg"
@@ -115,6 +104,9 @@ export default function Navbar() {
             <a href="#projects" className="nav-a">
               Projects
             </a>
+            <a href="#achievements" className="nav-a">
+              Achievements
+            </a>
           </div>
 
           <button
@@ -124,7 +116,6 @@ export default function Navbar() {
             title="Toggle theme"
             aria-label="Toggle theme"
           >
-            {/* Moon — shown in dark mode */}
             <span className="theme-icon theme-icon--moon" aria-hidden="true">
               <svg
                 width="15"
@@ -140,7 +131,6 @@ export default function Navbar() {
               </svg>
             </span>
 
-            {/* Sun — shown in light mode */}
             <span className="theme-icon theme-icon--sun" aria-hidden="true">
               <svg
                 width="15"

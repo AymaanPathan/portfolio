@@ -16,7 +16,7 @@ const projects = [
     description:
       "WhatsApp-powered CRM for solar businesses — connects partner conversations with a structured backend, giving teams full visibility without disrupting how partners already work.",
     url: "https://solarchatpro.com",
-    github: "https://github.com/AymaanPathan/solarchatpro",
+
     status: "Live",
     image: SolarchatPro,
     tech: [
