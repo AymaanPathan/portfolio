@@ -69,7 +69,7 @@ const projects = [
     id: "infrapilot",
     title: "InfraPilot",
     description:
-      "Automated infrastructure management platform that simplifies cloud operations — visualize your infrastructure, automate deployments, and maintain compliance with ease.",
+      "AI-powered Kubernetes dashboard that generates real-time UI from natural language using Generative UI and live cluster data.",
     url: null,
     github: "https://github.com/AymaanPathan/InfraPilot",
     status: "Live",
