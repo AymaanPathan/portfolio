@@ -35,7 +35,7 @@ const projects = [
     title: "Clause AI",
     description:
       "Turns plain English agreements into Bitcoin-enforced smart contracts on Stacks — AI parses milestones, sBTC locks funds, and disputes resolve on-chain. No lawyers, no trust required.",
-    url: "https://clauseai.com",
+    url: "https://clause-ai-bfno.vercel.app",
     github: "https://github.com/AymaanPathan/ClauseAI",
     status: "Live",
     image: ClauseAi,
