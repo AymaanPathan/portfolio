@@ -27,14 +27,14 @@
   --border-4: #2a2a2a;
 
   /* Text — bumped for readability */
-  --text-white: #f0f0f0;
-  --text-bright: #e8e8e8;
-  --text-base: #d0d0d0; /* was #c8c8c8 — slightly brighter */
-  --text-muted: #a0a0a0; /* was #888888 — much more readable */
-  --text-dim: #808080; /* was #666666 — lifted for legibility */
-  --text-dark: #606060; /* was #444444 */
-  --text-darker: #404040;
-  --text-faint: #333333;
+  --text-white: #ffffff;
+  --text-bright: #f5f5f5;
+  --text-base: #e8e8e8; /* was #d0d0d0 */
+  --text-muted: #c0c0c0; /* was #a0a0a0 */
+  --text-dim: #a0a0a0; /* was #808080 */
+  --text-dark: #808080; /* was #606060 */
+  --text-darker: #606060; /* was #404040 */
+  --text-faint: #404040; /* was #333333 */
 
   /* Accents */
   --accent-green: #4ade80;
@@ -48,7 +48,7 @@
 
   /* Nav */
   --nav-bg: rgba(10, 10, 10, 0.88);
-  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-border: rgba(255, 255, 255, 0.12); /* was 0.08 — subtle lift */
   --nav-link-hover-bg: rgba(255, 255, 255, 0.07);
   --nav-btn-hover-bg: rgba(255, 255, 255, 0.07);
 
@@ -59,8 +59,8 @@
   --chip-border: rgba(255, 255, 255, 0.07);
   --chip-bg-hover: rgba(255, 255, 255, 0.08);
   --chip-border-hover: rgba(255, 255, 255, 0.14);
-  --chip-color: #999;
-  --chip-color-hover: #e8e8e8;
+  --chip-color: #c0c0c0; /* was #999 */
+  --chip-color-hover: #ffffff; /* was #e8e8e8 */
 
   /* Stack icon */
   --stack-icon-bg: var(--bg-4);
@@ -1603,7 +1603,7 @@ html.light .hack-chip--live {
 .ach-rank {
   grid-area: rank;
   font-family: var(--font-mono);
-  font-size: var(--fs-14);
+  font-size: var(--fs-16);
   font-weight: var(--fw-medium);
   color: var(--text-dim);
   font-variant-numeric: tabular-nums;
@@ -1637,7 +1637,7 @@ html.light .hack-chip--live {
 }
 
 .ach-prize {
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: var(--fw-semibold);
   color: var(--accent-gold);
   padding: 2px 9px;
@@ -1653,7 +1653,7 @@ html.light .hack-chip--live {
 }
 
 .ach-event {
-  font-size: var(--fs-12);
+  font-size: var(--fs-13);
   color: var(--text-dim);
   transition: color 0.3s ease;
   line-height: 1.5;
@@ -1683,7 +1683,7 @@ html.light .hack-chip--live {
 }
 
 .ach-title {
-  font-size: var(--fs-14);
+  font-size: var(--fs-15);
   font-weight: var(--fw-semibold);
   color: var(--text-bright);
   letter-spacing: -0.02em;
@@ -1708,7 +1708,7 @@ html.light .hack-chip--live {
   top: 0;
   left: 0;
   right: 0;
-  font-size: var(--fs-12);
+  font-size: var(--fs-13);
   color: var(--text-muted);
   line-height: 1.7;
   /* reset old animation properties */
@@ -1739,7 +1739,7 @@ html.light .hack-chip--live {
     grid-template-areas: "rank meta divider body";
     align-items: start;
     gap: 20px;
-    padding: 22px 28px;
+    padding: 26px 32px;
   }
   .ach-top {
     flex-direction: column;
@@ -1748,6 +1748,7 @@ html.light .hack-chip--live {
     padding-bottom: 0;
     border-bottom: none;
     padding-top: 2px;
+    min-width: 180px;
   }
   .ach-body {
     padding-top: 2px;
@@ -1767,7 +1768,7 @@ html.light .hack-chip--live {
 /* ── Very small screens ── */
 @media (max-width: 380px) {
   .ach-row {
-    padding: 16px 14px;
+    padding: 18px 16px;
     gap: 0 10px;
   }
   .ach-rank {

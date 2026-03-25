@@ -35,7 +35,7 @@ const achievements = [
     id: "odoo",
     rank: "04",
     rankFirst: false,
-    title: "Odoo International Hackathon",
+    title: "Odoo National Hackathon",
     prize: null,
     event: "Top Finalist · 2,000+ participants",
     description:
