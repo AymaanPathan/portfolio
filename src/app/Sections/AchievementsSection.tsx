@@ -19,7 +19,7 @@ const achievements = [
     prize: null,
     event: "4th Rank · 5,000+ participants",
     description:
-      "Built InfraPilot — an AI-powered Kubernetes dashboard that generates real-time UI from natural language using Generative UI.",
+      "An AI-powered Kubernetes dashboard that generates real-time UI from natural language using Generative UI.",
   },
   {
     id: "multilingual",
@@ -29,7 +29,7 @@ const achievements = [
     prize: null,
     event: "7th Place · 1,000+ participants",
     description:
-      "Built DevBuddy — breaking language barriers in software development with live comment translation across collaborators.",
+      "Breaking language barriers in software development with live comment translation across collaborators.",
   },
   {
     id: "odoo",
@@ -37,7 +37,7 @@ const achievements = [
     rankFirst: false,
     title: "Odoo National Hackathon",
     prize: null,
-    event: "Top Finalist · 2,000+ participants",
+    event: "Top 10 · 2,000+ participants",
     description:
       "Built a student marketplace for buying and selling books — connecting campus communities through peer-to-peer listings.",
   },
@@ -62,7 +62,6 @@ export default function AchievementsSection() {
               <span className="ach-event ach-event--shiny">{a.event}</span>
             </div>
 
-            {/* divider — hidden on mobile via CSS */}
             <div className="ach-divider-el" />
 
             <div className="ach-body">
