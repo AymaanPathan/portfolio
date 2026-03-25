@@ -282,15 +282,6 @@ html.light .exp-tech-chip {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.72) inset;
 }
 
-/* Project tech icons */
-html.light .proj-tech-icon {
-  background: var(--chip-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--chip-border);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.72) inset;
-}
-
 /* Header divider inside exp card */
 html.light .exp-header {
   border-bottom-color: rgba(170, 158, 136, 0.3);
@@ -887,8 +878,6 @@ html.light .theme-icon--sun {
   transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
-
-
 .stack-icon:hover img,
 .stack-icon:hover svg {
   transform: scale(1.08);
@@ -1356,19 +1345,11 @@ html.light .theme-icon--sun {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--r-sm);
-  background: var(--chip-bg);
-  border: 1px solid var(--border-2); /* was chip-border — too faint */
+
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.proj-tech-icon:hover {
-  background: var(--chip-bg-hover);
-  border-color: var(--border-4);
-  transform: translateY(-2px) scale(1.1);
 }
 
 .proj-tech-icon-img {
