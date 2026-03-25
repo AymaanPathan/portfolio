@@ -1271,10 +1271,6 @@ html.light .theme-icon--sun {
   transition: color 0.25s ease;
 }
 
-.proj-card:hover .proj-title {
-  color: #ffffff;
-}
-
 .proj-links {
   display: flex;
   align-items: center;
