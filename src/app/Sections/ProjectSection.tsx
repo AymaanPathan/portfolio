@@ -10,6 +10,10 @@ import SolarchatPro from "../images/solarchatpro.png";
 import ClauseAi from "../images/clause-ai.png";
 import Orchestrix from "../images/Orchestrix.png";
 import InfraPilot from "../images/infrapilot.png";
+import GraphQL from "../icons/GraphQl.svg";
+import Redis from "../icons/Redis.svg";
+import Tailwind from "../icons/Tailwind.svg";
+import Stack from "../icons/stack.svg";
 
 const projects = [
   {
@@ -28,6 +32,9 @@ const projects = [
       { name: "MongoDB", icon: MongoDB },
       { name: "AWS", icon: AWS },
       { name: "TypeScript", icon: Typescript },
+      { name: "GraphQL", icon: GraphQL },
+      { name: "Redis", icon: Redis },
+      { name: "Tailwind CSS", icon: Tailwind },
     ],
   },
   {
@@ -44,7 +51,7 @@ const projects = [
       { name: "React", icon: React },
       { name: "Node.js", icon: NodeJs },
       { name: "MongoDB", icon: MongoDB },
-
+      { name: "Stacks", icon: Stack },
       { name: "TypeScript", icon: Typescript },
     ],
   },
