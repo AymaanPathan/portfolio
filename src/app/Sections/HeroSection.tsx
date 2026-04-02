@@ -23,7 +23,7 @@ export default function HeroSection() {
       {/* H1 — first reveal, no delay */}
       <h1 className="hero-h1" data-reveal>
         Hi, I&apos;m Aymaan —{" "}
-        <span className="hero-h1-muted">I build things.</span>
+        <span className="hero-h1-muted">I ship software</span>
       </h1>
       <ul
         className="hero-desc"
