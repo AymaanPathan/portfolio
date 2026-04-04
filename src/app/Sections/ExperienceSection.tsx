@@ -17,11 +17,10 @@ const experiences = [
     location: "On-site · Vadodara, IN",
     status: "Working",
     bullets: [
-      "Currently building SolarChat Pro (solarchatpro.com) — a SaaS product, in progress.",
-      "Built production-grade CRM from scratch serving 7 departments — reduced operational costs by 74% and increased sales conversions by 65%.",
-      "Developed React Native telecaller app with auto-dialing and WhatsApp automation reaching 1,000+ leads daily via cron-scheduled campaigns.",
-      "Architected role-based access control with hierarchical permissions, real-time Kanban pipeline, and cross-team task assignment.",
-      "Implemented warehouse module with barcode scanning, live inventory monitoring, PDF quotation generation, and S3-hosted document sharing.",
+      "_",
+      "Architected a production CRM from scratch 7 departments, 65% more conversions, 74% cost reduction. Redis cached 20K+ Kanban Data, deployed on AWS",
+      "Built a WhatsApp-style chat system from scratch using webSockets and WhatsApp Business Api Real-time messaging with RBAC ensuring managers get full visibility across sales reps   ",
+      "Partnered with founders on system architecture and owned end-to-end delivery across the Full product lifecycle",
     ],
   },
 ];
@@ -78,7 +77,8 @@ export default function ExperienceSection() {
                       >
                         SolarChat Pro ↗
                       </a>{" "}
-                      — a SaaS product, in progress.
+                      SaaS CRM replacing fragmented whatsApp ops with structured
+                      pipelines, Kanban, quotations, and payments
                     </span>
                   ) : (
                     <span>{b}</span>
