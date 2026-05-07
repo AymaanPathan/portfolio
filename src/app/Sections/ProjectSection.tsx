@@ -20,7 +20,6 @@ const projects = [
     title: "SolarChat Pro",
     description:
       "WhatsApp-powered CRM for solar businesses — connects partner conversations with a structured backend, giving teams full visibility without disrupting how partners already work.",
-    url: "https://solarchatpro.com",
 
     status: "Live",
     image: SolarchatPro,
