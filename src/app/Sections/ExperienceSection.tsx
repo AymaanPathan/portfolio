@@ -151,12 +151,6 @@ function ExpCard({ exp }: { exp: Experience }) {
         <div className="exp-meta">
           <div className="exp-company-row">
             <span className="exp-company">{exp.company}</span>
-            {exp.current && (
-              <span className="exp-status-badge">
-                <span className="ldot" />
-                Working
-              </span>
-            )}
           </div>
           {exp.role && <div className="exp-role">{exp.role}</div>}
         </div>
