@@ -20,8 +20,13 @@ type BulletLink = {
 
 type Bullet = {
   text: string;
-  gold?: boolean; // renders gold dot accent
-  link?: BulletLink; // optional inline link — place {link} in text where it should appear
+  gold?: boolean;
+  link?: BulletLink;
+};
+
+type TechItem = {
+  name: string;
+  icon: string;
 };
 
 type Experience = {
@@ -32,7 +37,7 @@ type Experience = {
   location: string;
   current?: boolean;
   bullets: Bullet[];
-  techStack: { name: string; icon: string }[];
+  techStack: TechItem[];
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -47,12 +52,12 @@ const experiences: Experience[] = [
     current: true,
     bullets: [
       {
-        text: "Building {link} a crypto payment platform with real-time settlement, secure flows, and scalable infrastructure built for high-throughput transactions",
+        text: "Building {link} — a crypto payment platform with real-time settlement, secure flows, and scalable infrastructure built for high-throughput transactions",
         gold: true,
         link: { href: "https://payfunds.com/", label: "Payfunds ↗" },
       },
       {
-        text: "Built real-time transaction tracking with sub-100ms latency using WebSockets and Redis pub/sub giving users live visibility into crypto payment states across chains",
+        text: "Built real-time transaction tracking with sub-100ms latency using WebSockets and Redis pub/sub — giving users live visibility into crypto payment states across chains",
       },
       {
         text: "Engineered secure payment flows with distributed transaction consistency, preventing double-spends and race conditions across concurrent settlement requests",
@@ -103,82 +108,132 @@ const experiences: Experience[] = [
   },
 ];
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+/** Splits bullet text on "{link}" and injects the anchor at that position. */
 function BulletText({ bullet }: { bullet: Bullet }) {
-  if (!bullet.link || !bullet.text.includes("{link}")) {
-    return <span>{bullet.text}</span>;
+  const { text, link } = bullet;
+
+  // No link data or placeholder — render plain text
+  if (!link?.href || !link?.label || !text?.includes("{link}")) {
+    return <span>{text ?? ""}</span>;
   }
 
-  const [before, after] = bullet.text.split("{link}");
+  const [before = "", after = ""] = text.split("{link}");
   return (
     <span>
       {before}
       <a
-        href={bullet.link.href}
+        href={link.href}
         target="_blank"
         rel="noopener noreferrer"
         className="exp-saas-link"
       >
-        {bullet.link.label}
+        {link.label}
       </a>
       {after}
     </span>
   );
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
+/** Single experience card — renders nothing if the entry is malformed. */
+function ExpCard({ exp }: { exp: Experience }) {
+  // Guard: require at minimum a company name and id
+  if (!exp?.id || !exp?.company) return null;
+
+  const bullets = Array.isArray(exp.bullets) ? exp.bullets : [];
+  const techStack = Array.isArray(exp.techStack) ? exp.techStack : [];
+
+  return (
+    <div className="exp-card">
+      {/* Header */}
+      <div className="exp-header">
+        <div className="exp-meta">
+          <div className="exp-company-row">
+            <span className="exp-company">{exp.company}</span>
+            {exp.current && (
+              <span className="exp-status-badge">
+                <span className="ldot" />
+                Working
+              </span>
+            )}
+          </div>
+          {exp.role && <div className="exp-role">{exp.role}</div>}
+        </div>
+
+        {(exp.period || exp.location) && (
+          <div className="exp-period-col">
+            {exp.period && <span className="exp-period">{exp.period}</span>}
+            {exp.location && (
+              <span className="exp-location">{exp.location}</span>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Bullets — skip the entire list if empty */}
+      {bullets.length > 0 && (
+        <ul className="exp-bullets">
+          {bullets.map((bullet, i) => {
+            // Skip malformed bullet entries
+            if (!bullet?.text) return null;
+            return (
+              <li key={i} className="exp-bullet">
+                <span
+                  className={`exp-bullet-dot${bullet.gold ? " exp-bullet-dot--gold" : ""}`}
+                />
+                <BulletText bullet={bullet} />
+              </li>
+            );
+          })}
+        </ul>
+      )}
+
+      {/* Tech stack — skip if empty */}
+      {techStack.length > 0 && (
+        <div className="exp-stack">
+          <div className="exp-stack-chips">
+            {techStack.map((tech, i) => {
+              // Skip chips that are missing a name or icon
+              if (!tech?.name || !tech?.icon) return null;
+              return (
+                <div key={i} className="exp-tech-chip">
+                  <Image
+                    src={tech.icon}
+                    alt={tech.name}
+                    width={15}
+                    height={15}
+                    className="exp-tech-chip-icon"
+                  />
+                  {tech.name}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Section ──────────────────────────────────────────────────────────────────
 
 export default function ExperienceSection() {
+  // Guard: if the experiences array is somehow empty or not an array, render nothing
+  const validExperiences = Array.isArray(experiences)
+    ? experiences.filter((exp) => exp?.id && exp?.company)
+    : [];
+
+  if (validExperiences.length === 0) return null;
+
   return (
     <section className="exp-section" id="work" data-reveal>
       <p className="exp-label">Career</p>
       <h2 className="exp-heading">Experience</h2>
 
       <div className="exp-list">
-        {experiences.map((exp) => (
-          <div key={exp.id} className="exp-card">
-            {/* Header */}
-            <div className="exp-header">
-              <div className="exp-meta">
-                <div className="exp-company-row">
-                  <span className="exp-company">{exp.company}</span>
-                </div>
-                <div className="exp-role">{exp.role}</div>
-              </div>
-
-              <div className="exp-period-col">
-                <span className="exp-period">{exp.period}</span>
-                <span className="exp-location">{exp.location}</span>
-              </div>
-            </div>
-
-            {/* Bullets */}
-            <ul className="exp-bullets">
-              {exp.bullets.map((bullet, i) => (
-                <li key={i} className="exp-bullet">
-                  <span className={`exp-bullet-dot`} />
-                  <BulletText bullet={bullet} />
-                </li>
-              ))}
-            </ul>
-
-            {/* Tech stack chips */}
-            <div className="exp-stack">
-              <div className="exp-stack-chips">
-                {exp.techStack.map((tech, i) => (
-                  <div key={i} className="exp-tech-chip">
-                    <Image
-                      src={tech.icon}
-                      alt={tech.name}
-                      width={15}
-                      height={15}
-                      className="exp-tech-chip-icon"
-                    />
-                    {tech.name}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        {validExperiences.map((exp) => (
+          <ExpCard key={exp.id} exp={exp} />
         ))}
       </div>
     </section>
