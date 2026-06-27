@@ -19,7 +19,7 @@ const projects = [
     id: "solarchat",
     title: "SolarChat Pro",
     description:
-      "WhatsApp-powered CRM for solar businesses — connects partner conversations with a structured backend, giving teams full visibility without disrupting how partners already work.",
+      "WhatsApp-powered CRM for solar businesses connects partner conversations with a structured backend, giving teams full visibility without disrupting how partners already work.",
 
     status: "Live",
     image: SolarchatPro,
@@ -39,7 +39,7 @@ const projects = [
     id: "clause-ai",
     title: "Clause AI",
     description:
-      "Turns plain English agreements into Bitcoin-enforced smart contracts on Stacks — AI parses milestones, sBTC locks funds, and disputes resolve on-chain. No lawyers, no trust required.",
+      "Turns plain English agreements into Bitcoin-enforced smart contracts on Stacks AI parses milestones, sBTC locks funds, and disputes resolve on-chain. No lawyers, no trust required.",
     url: "https://clause-ai-bfno.vercel.app",
     github: "https://github.com/AymaanPathan/ClauseAI",
     status: "Live",
@@ -56,7 +56,7 @@ const projects = [
     id: "orchestrix",
     title: "Orchestrix",
     description:
-      "Visual backend builder that converts plain English into production-ready APIs — type what you want, AI generates Motia workflow nodes, connects them, and deploys instantly. No backend code required.",
+      "Visual backend builder that converts plain English into production-ready APIs type what you want, AI generates Motia workflow nodes, connects them, and deploys instantly. No backend code required.",
     url: null,
     github: "https://github.com/AymaanPathan/Orchestrix",
     status: "Live",

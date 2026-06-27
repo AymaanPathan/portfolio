@@ -25,9 +25,9 @@ export function useSmoothAnchor() {
       ).__lenis;
       if (lenis) {
         lenis.scrollTo(el, {
-          offset: -80, // offset for fixed navbar height
-          duration: 1.4, // seconds — luxurious feel
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo ease-out
+          offset: -80,
+          duration: 1.4,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
       } else {
         el.scrollIntoView({ behavior: "smooth", block: "start" });

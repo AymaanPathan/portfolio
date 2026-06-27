@@ -52,12 +52,12 @@ const experiences: Experience[] = [
     current: true,
     bullets: [
       {
-        text: "Building {link} — a crypto payment platform with real-time settlement, secure flows, and scalable infrastructure built for high-throughput transactions",
+        text: "Building {link} a crypto payment platform with real-time settlement, secure flows, and scalable infrastructure built for high-throughput transactions",
         gold: true,
         link: { href: "https://payfunds.com/", label: "Payfunds ↗" },
       },
       {
-        text: "Built real-time transaction tracking with sub-100ms latency using WebSockets and Redis pub/sub — giving users live visibility into crypto payment states across chains",
+        text: "Built real-time transaction tracking with sub-100ms latency using WebSockets and Redis pub/sub giving users live visibility into crypto payment states across chains",
       },
       {
         text: "Engineered secure payment flows with distributed transaction consistency, preventing double-spends and race conditions across concurrent settlement requests",
@@ -87,10 +87,10 @@ const experiences: Experience[] = [
     location: "On-site · Vadodara, IN",
     bullets: [
       {
-        text: "Architected a production CRM from scratch serving 7 departments — drove 65% more conversions and 74% cost reduction. Redis-cached 20K+ Kanban records, deployed on AWS",
+        text: "Architected a production CRM from scratch serving 7 departments drove 65% more conversions and 74% cost reduction. Redis-cached 20K+ Kanban records, deployed on AWS",
       },
       {
-        text: "Built a WhatsApp-style chat system from scratch using WebSockets and WhatsApp Business API — real-time messaging with RBAC ensuring managers get full visibility across sales reps",
+        text: "Built a WhatsApp-style chat system from scratch using WebSockets and WhatsApp Business API real-time messaging with RBAC ensuring managers get full visibility across sales reps",
       },
       {
         text: "Partnered with founders on system architecture and owned end-to-end delivery across the full product lifecycle",
@@ -114,7 +114,6 @@ const experiences: Experience[] = [
 function BulletText({ bullet }: { bullet: Bullet }) {
   const { text, link } = bullet;
 
-  // No link data or placeholder — render plain text
   if (!link?.href || !link?.label || !text?.includes("{link}")) {
     return <span>{text ?? ""}</span>;
   }
@@ -136,7 +135,6 @@ function BulletText({ bullet }: { bullet: Bullet }) {
   );
 }
 
-/** Single experience card — renders nothing if the entry is malformed. */
 function ExpCard({ exp }: { exp: Experience }) {
   // Guard: require at minimum a company name and id
   if (!exp?.id || !exp?.company) return null;
@@ -165,7 +163,6 @@ function ExpCard({ exp }: { exp: Experience }) {
         )}
       </div>
 
-      {/* Bullets — skip the entire list if empty */}
       {bullets.length > 0 && (
         <ul className="exp-bullets">
           {bullets.map((bullet, i) => {
@@ -183,7 +180,6 @@ function ExpCard({ exp }: { exp: Experience }) {
         </ul>
       )}
 
-      {/* Tech stack — skip if empty */}
       {techStack.length > 0 && (
         <div className="exp-stack">
           <div className="exp-stack-chips">

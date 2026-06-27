@@ -50,7 +50,7 @@ export default function HeroSection() {
             }}
           />
           <span>
-            Hackathon winner —{" "}
+            Hackathon winner {" "}
             <strong
               style={{
                 color: "var(--accent-gold)",
@@ -59,7 +59,7 @@ export default function HeroSection() {
             >
               ₹1.34 Lakhs prize Solo
             </strong>
-            , Top 10 finishes across national &amp; international competitions
+            , Top 10 finishes across global competitions
           </span>
         </li>
         <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
@@ -74,7 +74,7 @@ export default function HeroSection() {
             }}
           />
           <span>
-            Building and shipping SaaS products — from idea to production
+            Building and shipping SaaS products from idea to production
           </span>
         </li>
         <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
@@ -89,7 +89,7 @@ export default function HeroSection() {
             }}
           />
           <span>
-            Beyond code — I write blogs.{" "}
+            Beyond code I write blogs.{" "}
             <a
               href="https://medium.com/@aymaanpathan5"
               target="_blank"
