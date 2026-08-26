@@ -47,26 +47,20 @@ const experiences: Experience[] = [
     id: "hyprforge",
     company: "HyprForge",
     role: "Full Stack Engineer",
-    period: "Apr 2025 – Present",
+    period: "Apr 2026 – Jul 2026",
     location: "Remote",
-    current: true,
     bullets: [
       {
-        text: "Building {link} a crypto payment platform with real-time settlement, secure flows, and scalable infrastructure built for high-throughput transactions",
-        gold: true,
-        link: { href: "https://payfunds.com/", label: "Payfunds ↗" },
+        text: "Built scalable full-stack applications with TypeScript, Node.js, React, and PostgreSQL, focusing on reliability, performance, and maintainability",
       },
       {
-        text: "Built real-time transaction tracking with sub-100ms latency using WebSockets and Redis pub/sub giving users live visibility into crypto payment states across chains",
+        text: "Designed real-time application workflows using WebSockets and Redis pub/sub for low-latency event delivery and live system updates",
       },
       {
-        text: "Engineered secure payment flows with distributed transaction consistency, preventing double-spends and race conditions across concurrent settlement requests",
+        text: "Engineered backend services with concurrency-safe processing, asynchronous job execution, caching, and failure recovery",
       },
       {
-        text: "Designed scalable backend architecture capable of handling high-throughput crypto operations, with queue-based processing and graceful failure recovery",
-      },
-      {
-        text: "Optimized end-to-end latency across payment pipelines through strategic caching, connection pooling, and async job offloading",
+        text: "Optimized backend performance through caching, connection pooling, asynchronous processing, and efficient database access patterns",
       },
     ],
     techStack: [
@@ -82,8 +76,8 @@ const experiences: Experience[] = [
   {
     id: "frelit",
     company: "Frelit Energy Pvt. Limited",
-    role: "Software Developer",
-    period: "2024 – Apr 2025",
+    role: "Full Stack Software Developer",
+    period: "Dec 2024 – Apr 2026",
     location: "On-site · Vadodara, IN",
     bullets: [
       {
