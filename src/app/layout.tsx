@@ -1,53 +1,58 @@
-// app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
-import ScrollReveal from "./components/ScrollRevealInit";
 import "./globals.css";
 
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+
+const title = "Aymaan Pathan — Software Engineer";
+const description =
+  "Aymaan Pathan is a software engineer at AgileMorph building AI-native products and production systems. 2× hackathon winner: FalkorDB Graph Hacks (Track 02) and Backend Reloaded (₹1.34L, solo).";
+
 export const metadata: Metadata = {
-  title: "Aymaan Pathan | SaaS Builder & Hackathon Winner ₹1.34L",
-  description:
-    "Aymaan Pathan is a 22-year-old software developer from Vadodara building real-world SaaS products and production systems. Hackathon winner (₹1.34L), Top 10 across global competitions. Built CRM platforms, WhatsApp automation systems, AI agents, and scalable backend tools used in production.",
+  title,
+  description,
   keywords: [
     "Aymaan Pathan",
-    "SaaS Developer India",
-    "Hackathon Winner Developer",
+    "Software Engineer",
+    "Full Stack Engineer India",
+    "Hackathon Winner",
+    "FalkorDB Hackathon",
+    "AI Engineer India",
     "Software Developer Vadodara",
-    "MERN Stack Developer India",
-    "AI Developer India",
-    "Full Stack Developer Portfolio",
   ],
   metadataBase: new URL("https://aymaan.in"),
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Aymaan Pathan | SaaS Builder & Hackathon Winner ₹1.34L",
-    description:
-      "Building production-grade systems, SaaS products, CRM platforms, WhatsApp automation, and AI-powered tools. Hackathon winner with top global finishes.",
+    title,
+    description,
     url: "https://aymaan.in",
-    siteName: "Aymaan Portfolio",
+    siteName: "Aymaan Pathan",
     type: "website",
   },
-  twitter: {
-    card: "summary",
-    title: "Aymaan Pathan | SaaS Builder & Hackathon Winner ₹1.34L",
-    description:
-      "22-year-old developer building real-world SaaS products, AI systems, and automation tools. Hackathon winner (₹1.34L).",
-  },
+  twitter: { card: "summary", title, description },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#111111" },
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+  ],
+};
+
+// Applies the saved theme before first paint so there is no flash.
+const themeScript = `try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light')}catch(e){}`;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body suppressHydrationWarning>
         <SmoothScrollProvider>
           {children}
-          <ScrollReveal />
         </SmoothScrollProvider>
       </body>
     </html>

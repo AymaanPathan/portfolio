@@ -1,225 +1,70 @@
 "use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import NextJs from "../icons/NextJs.svg";
-import ReactIcon from "../icons/React.svg";
-import AWS from "../icons/Aws.svg";
-import NodeJs from "../icons/Nodejs.svg";
-import MongoDB from "../icons/MongoDb.svg";
-import GraphQL from "../icons/GraphQl.svg";
-import Redis from "../icons/Redis.svg";
-import TypeScript from "../icons/Typescript.svg";
-import PostgreSQL from "../icons/Prisma.svg";
-import Docker from "../icons/Docker.svg";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type BulletLink = {
-  href: string;
-  label: string;
-};
-
-type Bullet = {
-  text: string;
-  gold?: boolean;
-  link?: BulletLink;
-};
-
-type TechItem = {
-  name: string;
-  icon: string;
-};
-
-type Experience = {
-  id: string;
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  current?: boolean;
-  bullets: Bullet[];
-  techStack: TechItem[];
-};
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const experiences: Experience[] = [
-  {
-    id: "hyprforge",
-    company: "HyprForge",
-    role: "Full Stack Engineer",
-    period: "Apr 2026 – Jul 2026",
-    location: "Remote",
-    bullets: [
-      {
-        text: "Built scalable full-stack applications with TypeScript, Node.js, React, and PostgreSQL, focusing on reliability, performance, and maintainability",
-      },
-      {
-        text: "Designed real-time application workflows using WebSockets and Redis pub/sub for low-latency event delivery and live system updates",
-      },
-      {
-        text: "Engineered backend services with concurrency-safe processing, asynchronous job execution, caching, and failure recovery",
-      },
-      {
-        text: "Optimized backend performance through caching, connection pooling, asynchronous processing, and efficient database access patterns",
-      },
-    ],
-    techStack: [
-      { name: "Next.js", icon: NextJs },
-      { name: "Node.js", icon: NodeJs },
-      { name: "React", icon: ReactIcon },
-      { name: "PostgreSQL", icon: PostgreSQL },
-      { name: "Redis", icon: Redis },
-      { name: "Docker", icon: Docker },
-      { name: "TypeScript", icon: TypeScript },
-    ],
-  },
-  {
-    id: "frelit",
-    company: "Frelit Energy Pvt. Limited",
-    role: "Full Stack Software Developer",
-    period: "Dec 2024 – Apr 2026",
-    location: "On-site · Vadodara, IN",
-    bullets: [
-      {
-        text: "Architected a production CRM from scratch serving 7 departments drove 65% more conversions and 74% cost reduction. Redis-cached 20K+ Kanban records, deployed on AWS",
-      },
-      {
-        text: "Built a WhatsApp-style chat system from scratch using WebSockets and WhatsApp Business API real-time messaging with RBAC ensuring managers get full visibility across sales reps",
-      },
-      {
-        text: "Partnered with founders on system architecture and owned end-to-end delivery across the full product lifecycle",
-      },
-    ],
-    techStack: [
-      { name: "Next.js", icon: NextJs },
-      { name: "React", icon: ReactIcon },
-      { name: "AWS", icon: AWS },
-      { name: "Node.js", icon: NodeJs },
-      { name: "MongoDB", icon: MongoDB },
-      { name: "GraphQL", icon: GraphQL },
-      { name: "Redis", icon: Redis },
-    ],
-  },
-];
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-/** Splits bullet text on "{link}" and injects the anchor at that position. */
-function BulletText({ bullet }: { bullet: Bullet }) {
-  const { text, link } = bullet;
-
-  if (!link?.href || !link?.label || !text?.includes("{link}")) {
-    return <span>{text ?? ""}</span>;
-  }
-
-  const [before = "", after = ""] = text.split("{link}");
-  return (
-    <span>
-      {before}
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="exp-saas-link"
-      >
-        {link.label}
-      </a>
-      {after}
-    </span>
-  );
-}
-
-function ExpCard({ exp }: { exp: Experience }) {
-  // Guard: require at minimum a company name and id
-  if (!exp?.id || !exp?.company) return null;
-
-  const bullets = Array.isArray(exp.bullets) ? exp.bullets : [];
-  const techStack = Array.isArray(exp.techStack) ? exp.techStack : [];
-
-  return (
-    <div className="exp-card">
-      {/* Header */}
-      <div className="exp-header">
-        <div className="exp-meta">
-          <div className="exp-company-row">
-            <span className="exp-company">{exp.company}</span>
-          </div>
-          {exp.role && <div className="exp-role">{exp.role}</div>}
-        </div>
-
-        {(exp.period || exp.location) && (
-          <div className="exp-period-col">
-            {exp.period && <span className="exp-period">{exp.period}</span>}
-            {exp.location && (
-              <span className="exp-location">{exp.location}</span>
-            )}
-          </div>
-        )}
-      </div>
-
-      {bullets.length > 0 && (
-        <ul className="exp-bullets">
-          {bullets.map((bullet, i) => {
-            // Skip malformed bullet entries
-            if (!bullet?.text) return null;
-            return (
-              <li key={i} className="exp-bullet">
-                <span
-                  className={`exp-bullet-dot${bullet.gold ? " exp-bullet-dot--gold" : ""}`}
-                />
-                <BulletText bullet={bullet} />
-              </li>
-            );
-          })}
-        </ul>
-      )}
-
-      {techStack.length > 0 && (
-        <div className="exp-stack">
-          <div className="exp-stack-chips">
-            {techStack.map((tech, i) => {
-              // Skip chips that are missing a name or icon
-              if (!tech?.name || !tech?.icon) return null;
-              return (
-                <div key={i} className="exp-tech-chip">
-                  <Image
-                    src={tech.icon}
-                    alt={tech.name}
-                    width={15}
-                    height={15}
-                    className="exp-tech-chip-icon"
-                  />
-                  {tech.name}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ─── Section ──────────────────────────────────────────────────────────────────
+import { ChevronDown } from "lucide-react";
+import { experiences } from "../data";
+import SectionTitle from "../components/SectionTitle";
 
 export default function ExperienceSection() {
-  // Guard: if the experiences array is somehow empty or not an array, render nothing
-  const validExperiences = Array.isArray(experiences)
-    ? experiences.filter((exp) => exp?.id && exp?.company)
-    : [];
-
-  if (validExperiences.length === 0) return null;
+  const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section className="exp-section" id="work" data-reveal>
-      <p className="exp-label">Career</p>
-      <h2 className="exp-heading">Experience</h2>
+    <section className="sec" id="experience">
+      <SectionTitle>Experience</SectionTitle>
+      <ul className="exp-list">
+        {experiences.map((e) => {
+          const open = openId === e.id;
+          return (
+            <li key={e.id} className={`exp${open ? " is-open" : ""}`}>
+              <button
+                type="button"
+                className="exp-row"
+                aria-expanded={open}
+                aria-controls={`exp-${e.id}`}
+                onClick={() => setOpenId(open ? null : e.id)}
+              >
+                <span className="exp-left">
+                  <span className="exp-company">
+                    <Image src={e.logo} alt="" width={20} height={20} className="exp-logo" />
+                    {e.company}
+                    {e.current && (
+                      <span className="badge-live">
+                        <span className="dot" /> Working
+                      </span>
+                    )}
+                  </span>
+                  <span className="exp-role">{e.role}</span>
+                </span>
+                <span className="exp-right">
+                  <span>{e.period}</span>
+                  <span>{e.location}</span>
+                </span>
+                <ChevronDown size={16} className="exp-chevron" aria-hidden="true" />
+              </button>
 
-      <div className="exp-list">
-        {validExperiences.map((exp) => (
-          <ExpCard key={exp.id} exp={exp} />
-        ))}
-      </div>
+              <div className="exp-panel" id={`exp-${e.id}`} role="region">
+                <div className="exp-panel-inner">
+                  <p className="exp-hook">{e.headline}</p>
+                  <ul className="exp-bullets">
+                    {e.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                  <ul className="tags">
+                    {e.stack.map((s) => (
+                      <li key={s}>{s}</li>
+                    ))}
+                  </ul>
+                  <a href={e.url} target="_blank" rel="noopener noreferrer" className="more-link">
+                    Visit {e.company} →
+                  </a>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }
